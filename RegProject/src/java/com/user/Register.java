@@ -11,7 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.sql.*;
 /**
  *
  * @author ARYAN
@@ -50,7 +50,28 @@ public class Register extends HttpServlet {
             
             
             //use jdbc for connection..
-
+            try{
+                Class.forName("com.mysql.jdbc.Driver");
+                
+                String url="jdbc:mysql://localhost:3306/register";
+                String username = "root";
+                String userpassword = "root";
+                Connection con = DriverManager.getConnection(url,username,userpassword);
+                
+                String q = "insert into user(name,password,email) values(?,?,?)";
+                
+                PreparedStatement pstm=con.prepareStatement(q);
+                pstm.setString(1, name);
+                pstm.setString(2, password);
+                pstm.setString(3, email);
+                
+                pstm.executeUpdate();
+                
+                out.println("<h2>Registerd successfully.....</h2>");
+            }catch(Exception e){
+                e.printStackTrace();
+                out.println("<h2>Error occured..</h2>");
+            }
             
             out.println("</body>");
             out.println("</html>");
