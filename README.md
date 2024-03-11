@@ -1,7 +1,8 @@
 # JAVA-LEARNING
 Welcome to the Java-Projects repository! This repository serves as a hub for various Java projects, showcasing a range of programming concepts, techniques, and applications.
 
-# HttpSessionLogin
+# Project Description
+HttpSessionLogin:-
 This project uses Java to create a system for logging into a website. It's made up of four main parts: Login, Home, Profile, and Logout.
 When you try to log in (using the Login part), it checks if your username and password are correct. If they are, it creates a special session just for you using something called HttpSession. It also stores your login details in this session, so it remembers who you are as you move around the website.
 Once you're logged in, you can see the Home page. This page is personalized just for you based on your login details.
